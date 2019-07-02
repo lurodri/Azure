@@ -18,13 +18,13 @@ Param
 	[string]$PoolName,
 
 	[Parameter(Mandatory=$true)]
-	[int]$AgentCount,
+	[int]$AgentCount
 
 	# [Parameter(Mandatory=$true)]
 	# [string]$AdminUser,
 
-	[Parameter(Mandatory=$true)]
-	[array]$Modules
+<# 	[Parameter(Mandatory=$true)]
+	[array]$Modules #>
 )
 
 Write-Verbose "Entering InstallVSOAgent.ps1" -verbose
@@ -114,7 +114,7 @@ $CurrentValue = [Environment]::GetEnvironmentVariable("PSModulePath", "Machine")
 $NewValue = [Environment]::GetEnvironmentVariable("PSModulePath", "Machine")
 Write-Verbose "new Path is: $($NewValue)" -verbose
 
-# Creating new Path
+<# # Creating new Path
 if (!(Test-Path -Path C:\Modules -ErrorAction SilentlyContinue))
 {	New-Item -ItemType Directory -Name Modules -Path C:\ -Verbose }
 
@@ -128,7 +128,7 @@ Foreach ($Module in $DefaultModules)
 {
 	if ($tmp = Get-Module $Module -ErrorAction SilentlyContinue) {	Remove-Module $Module -Force	}
 	Find-Module -Name $Module -Repository PSGallery -Verbose | Install-Module -Force -Confirm:$false -SkipPublisherCheck -Verbose
-}
+} #>
 
 # # Uninstalling old Azure PowerShell Modules
 # $programName = "Microsoft Azure PowerShell"
